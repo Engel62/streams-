@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Задание 1");
         List<Integer> integerList = new ArrayList<>();
         integerList.add(1);
         integerList.add(3);
@@ -20,6 +21,8 @@ public class Main {
         findMinmax(integerStream, Comparator.comparingInt(i -> i), (x, y) ->
                 System.out.println
                         ("Минимальное значение в стриме " + x + " , " + "максимальное значение в стриме " + y));
+        System.out.println("Задание 2");
+        countEvenNumbers(integerList);
     }
     public static <T> void findMinmax(
             Stream<? extends  T> stream,
@@ -36,6 +39,13 @@ public class Main {
             max = arrayList.get(arrayList.size() - 1);
         }
         minMaxConsumer.accept(min,max);
+
+    }
+
+    public static void countEvenNumbers(List<Integer> list) {
+        System.out.println("количество четных чисел : " + list.stream()
+                .filter(x-> x % 2 == 0)
+                .count());
     }
 
 }
